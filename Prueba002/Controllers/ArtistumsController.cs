@@ -11,87 +11,87 @@ using Prueba002.Models.dbModels;
 namespace Prueba002.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class GeneroesController : Controller
+    public class ArtistumsController : Controller
     {
         private readonly PropuestadeBasedeDatosdelProyectoFinalContext _context;
 
-        public GeneroesController(PropuestadeBasedeDatosdelProyectoFinalContext context)
+        public ArtistumsController(PropuestadeBasedeDatosdelProyectoFinalContext context)
         {
             _context = context;
         }
 
-        // GET: Generoes
+        // GET: Artistums
         public async Task<IActionResult> Index()
         {
-              return _context.Generos != null ? 
-                          View(await _context.Generos.ToListAsync()) :
-                          Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Generos'  is null.");
+              return _context.Artista != null ? 
+                          View(await _context.Artista.ToListAsync()) :
+                          Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Artista'  is null.");
         }
 
-        // GET: Generoes/Details/5
+        // GET: Artistums/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Generos == null)
+            if (id == null || _context.Artista == null)
             {
                 return NotFound();
             }
 
-            var genero = await _context.Generos
-                .FirstOrDefaultAsync(m => m.IdGenero == id);
-            if (genero == null)
+            var artistum = await _context.Artista
+                .FirstOrDefaultAsync(m => m.IdArtista == id);
+            if (artistum == null)
             {
                 return NotFound();
             }
 
-            return View(genero);
+            return View(artistum);
         }
 
-        // GET: Generoes/Create
+        // GET: Artistums/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Generoes/Create
+        // POST: Artistums/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdGenero,Descripcion,ImagenGenero")] Genero genero)
+        public async Task<IActionResult> Create([Bind("IdArtista,Nombre")] Artistum artistum)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(genero);
+                _context.Add(artistum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(genero);
+            return View(artistum);
         }
 
-        // GET: Generoes/Edit/5
+        // GET: Artistums/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Generos == null)
+            if (id == null || _context.Artista == null)
             {
                 return NotFound();
             }
 
-            var genero = await _context.Generos.FindAsync(id);
-            if (genero == null)
+            var artistum = await _context.Artista.FindAsync(id);
+            if (artistum == null)
             {
                 return NotFound();
             }
-            return View(genero);
+            return View(artistum);
         }
 
-        // POST: Generoes/Edit/5
+        // POST: Artistums/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdGenero,Descripcion,ImagenGenero")] Genero genero)
+        public async Task<IActionResult> Edit(int id, [Bind("IdArtista,Nombre")] Artistum artistum)
         {
-            if (id != genero.IdGenero)
+            if (id != artistum.IdArtista)
             {
                 return NotFound();
             }
@@ -100,12 +100,12 @@ namespace Prueba002.Controllers
             {
                 try
                 {
-                    _context.Update(genero);
+                    _context.Update(artistum);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GeneroExists(genero.IdGenero))
+                    if (!ArtistumExists(artistum.IdArtista))
                     {
                         return NotFound();
                     }
@@ -116,49 +116,49 @@ namespace Prueba002.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(genero);
+            return View(artistum);
         }
 
-        // GET: Generoes/Delete/5
+        // GET: Artistums/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Generos == null)
+            if (id == null || _context.Artista == null)
             {
                 return NotFound();
             }
 
-            var genero = await _context.Generos
-                .FirstOrDefaultAsync(m => m.IdGenero == id);
-            if (genero == null)
+            var artistum = await _context.Artista
+                .FirstOrDefaultAsync(m => m.IdArtista == id);
+            if (artistum == null)
             {
                 return NotFound();
             }
 
-            return View(genero);
+            return View(artistum);
         }
 
-        // POST: Generoes/Delete/5
+        // POST: Artistums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Generos == null)
+            if (_context.Artista == null)
             {
-                return Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Generos'  is null.");
+                return Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Artista'  is null.");
             }
-            var genero = await _context.Generos.FindAsync(id);
-            if (genero != null)
+            var artistum = await _context.Artista.FindAsync(id);
+            if (artistum != null)
             {
-                _context.Generos.Remove(genero);
+                _context.Artista.Remove(artistum);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GeneroExists(int id)
+        private bool ArtistumExists(int id)
         {
-          return (_context.Generos?.Any(e => e.IdGenero == id)).GetValueOrDefault();
+          return (_context.Artista?.Any(e => e.IdArtista == id)).GetValueOrDefault();
         }
     }
 }
