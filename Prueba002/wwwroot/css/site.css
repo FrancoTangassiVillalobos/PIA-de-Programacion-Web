@@ -7,6 +7,9 @@ html {
     font-size: 16px;
   }
 }
+h3 {
+text-align:center;
+}
 
 html {
   position: relative;
@@ -45,4 +48,40 @@ body {
 }
 #form {
     color: white;
+}
+#imagen1 {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+#imagen2 {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+#imagen3 {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+#imagen4 {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+#imagen5 {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+#imagen6 {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+p {
+    text-align: center;
+}
+.x {
+    background-color: #e5b3fe;
 }
