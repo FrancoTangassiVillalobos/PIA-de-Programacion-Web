@@ -15,6 +15,7 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family:monospace;
 }
 .container-sm {
     background-color: #301c41;

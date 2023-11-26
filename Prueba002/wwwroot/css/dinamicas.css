@@ -1,0 +1,16 @@
+﻿body {
+    background-color: #301c41;
+    text-align: center;
+    font-family:monospace;
+}
+
+h1 {
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+h5 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
