@@ -1,5 +1,7 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -7,18 +9,15 @@ html {
     font-size: 16px;
   }
 }
+
 h3 {
 text-align:center;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
-  font-family:monospace;
+    margin-bottom: 60px;
+    font-family: monospace;
+    background: #FED9ED;
 }
 .container-sm {
     background-color: #301c41;
@@ -46,42 +45,27 @@ body {
     margin: 0 auto;
     padding: 0.5rem 1rem;
 }
+
+.btn:hover {
+    font-weight: bold;
+    color: #301c41;
+    background-color: #BB9CC0;
+}
+
 #form {
     color: white;
 }
-#imagen1 {
+
+#imagen {
     display: block;
     width: 60%;
     margin: auto;
 }
-#imagen2 {
-    display: block;
-    width: 60%;
-    margin: auto;
-}
-#imagen3 {
-    display: block;
-    width: 60%;
-    margin: auto;
-}
-#imagen4 {
-    display: block;
-    width: 60%;
-    margin: auto;
-}
-#imagen5 {
-    display: block;
-    width: 60%;
-    margin: auto;
-}
-#imagen6 {
-    display: block;
-    width: 60%;
-    margin: auto;
-}
+
 p {
     text-align: center;
 }
-.x {
+
+.x, .bgButton {
     background-color: #e5b3fe;
 }
