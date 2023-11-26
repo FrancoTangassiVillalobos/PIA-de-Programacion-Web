@@ -23,6 +23,10 @@ namespace Prueba002.Controllers
             return View();
         }
 
+        public IActionResult Explorar()
+        {
+            return View();
+        }
         public IActionResult Contact()
         {
             return View();
