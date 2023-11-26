@@ -16,3 +16,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+.container-sm {
+    background-color: #301c41;
+    padding-bottom: 17px;
+    padding-top: 30px;
+}
+.header-background {
+    color: white;
+    background-color: #301c41;
+    height: 100%;
+}
+
+.header-inner-wrap {
+    padding-top: 38px;
+    padding-bottom: 20px;
+}
+
+.carousel-inner {
+    height: 555px;
+}
+
+.btn {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+}
+#form {
+    color: white;
+}
