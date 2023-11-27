@@ -10,88 +10,90 @@ using Prueba002.Models.dbModels;
 
 namespace Prueba002.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    public class ArtistasController : Controller
+    public class ListumsController : Controller
     {
         private readonly PropuestadeBasedeDatosdelProyectoFinalContext _context;
 
-        public ArtistasController(PropuestadeBasedeDatosdelProyectoFinalContext context)
+        public ListumsController(PropuestadeBasedeDatosdelProyectoFinalContext context)
         {
             _context = context;
         }
 
-        // GET: Artistas
+        // GET: Listums
         public async Task<IActionResult> Index()
         {
-              return _context.Artista != null ? 
-                          View(await _context.Artista.ToListAsync()) :
-                          Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Artista'  is null.");
+            var propuestadeBasedeDatosdelProyectoFinalContext = _context.Lista.Include(l => l.IdUsuarioNavigation);
+            return View(await propuestadeBasedeDatosdelProyectoFinalContext.ToListAsync());
         }
 
-        // GET: Artistas/Details/5
+        // GET: Listums/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Artista == null)
+            if (id == null || _context.Lista == null)
             {
                 return NotFound();
             }
 
-            var artistum = await _context.Artista
-                .FirstOrDefaultAsync(m => m.IdArtista == id);
-            if (artistum == null)
+            var listum = await _context.Lista
+                .Include(l => l.IdUsuarioNavigation)
+                .FirstOrDefaultAsync(m => m.IdLista == id);
+            if (listum == null)
             {
                 return NotFound();
             }
 
-            return View(artistum);
+            return View(listum);
         }
 
-        // GET: Artistas/Create
+        // GET: Listums/Create
         public IActionResult Create()
         {
+            ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Artistas/Create
+        // POST: Listums/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdArtista,Nombre")] Artistum artistum)
+        public async Task<IActionResult> Create([Bind("IdLista,IdUsuario,NombreLista")] Listum listum)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(artistum);
+                _context.Add(listum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(artistum);
+            ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", listum.IdUsuario);
+            return View(listum);
         }
 
-        // GET: Artistas/Edit/5
+        // GET: Listums/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Artista == null)
+            if (id == null || _context.Lista == null)
             {
                 return NotFound();
             }
 
-            var artistum = await _context.Artista.FindAsync(id);
-            if (artistum == null)
+            var listum = await _context.Lista.FindAsync(id);
+            if (listum == null)
             {
                 return NotFound();
             }
-            return View(artistum);
+            ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", listum.IdUsuario);
+            return View(listum);
         }
 
-        // POST: Artistas/Edit/5
+        // POST: Listums/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdArtista,Nombre")] Artistum artistum)
+        public async Task<IActionResult> Edit(int id, [Bind("IdLista,IdUsuario,NombreLista")] Listum listum)
         {
-            if (id != artistum.IdArtista)
+            if (id != listum.IdLista)
             {
                 return NotFound();
             }
@@ -100,12 +102,12 @@ namespace Prueba002.Controllers
             {
                 try
                 {
-                    _context.Update(artistum);
+                    _context.Update(listum);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ArtistumExists(artistum.IdArtista))
+                    if (!ListumExists(listum.IdLista))
                     {
                         return NotFound();
                     }
@@ -116,49 +118,51 @@ namespace Prueba002.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(artistum);
+            ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", listum.IdUsuario);
+            return View(listum);
         }
 
-        // GET: Artistas/Delete/5
+        // GET: Listums/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Artista == null)
+            if (id == null || _context.Lista == null)
             {
                 return NotFound();
             }
 
-            var artistum = await _context.Artista
-                .FirstOrDefaultAsync(m => m.IdArtista == id);
-            if (artistum == null)
+            var listum = await _context.Lista
+                .Include(l => l.IdUsuarioNavigation)
+                .FirstOrDefaultAsync(m => m.IdLista == id);
+            if (listum == null)
             {
                 return NotFound();
             }
 
-            return View(artistum);
+            return View(listum);
         }
 
-        // POST: Artistas/Delete/5
+        // POST: Listums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Artista == null)
+            if (_context.Lista == null)
             {
-                return Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Artista'  is null.");
+                return Problem("Entity set 'PropuestadeBasedeDatosdelProyectoFinalContext.Lista'  is null.");
             }
-            var artistum = await _context.Artista.FindAsync(id);
-            if (artistum != null)
+            var listum = await _context.Lista.FindAsync(id);
+            if (listum != null)
             {
-                _context.Artista.Remove(artistum);
+                _context.Lista.Remove(listum);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ArtistumExists(int id)
+        private bool ListumExists(int id)
         {
-          return (_context.Artista?.Any(e => e.IdArtista == id)).GetValueOrDefault();
+          return (_context.Lista?.Any(e => e.IdLista == id)).GetValueOrDefault();
         }
     }
 }
