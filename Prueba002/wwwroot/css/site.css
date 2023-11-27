@@ -10,6 +10,10 @@ html {
   }
 }
 
+nav {
+    background-color: #BB9CC0;
+}
+
 h3 {
 text-align:center;
 }
@@ -17,7 +21,9 @@ text-align:center;
 body {
     margin-bottom: 60px;
     font-family: monospace;
+    background-color: #FFE4D6;
 }
+
 .container-sm {
     background-color: #301c41;
     padding-bottom: 17px;
@@ -45,7 +51,7 @@ body {
     padding: 0.5rem 1rem;
 }
 
-.btn:hover {
+.btn:hover, .nav-link:hover {
     font-weight: bold;
     color: #301c41;
     background-color: #BB9CC0;
@@ -67,4 +73,14 @@ p {
 
 .x, .bgButton {
     background-color: #e5b3fe;
+}
+
+.album {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.album:hover {
+    transform: scale(1.1);
 }
