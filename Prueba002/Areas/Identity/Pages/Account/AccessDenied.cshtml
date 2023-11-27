@@ -1,12 +1,16 @@
 ﻿@page
 @model AccessDeniedModel
 @{
-    ViewData["Title"] = "Access denied";
+    ViewData["Title"] = "Acceso denegado";
 }
 
 <header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">chismosillo, no eres admin.</p>
+    <br>
+    <br>
+    <h1 class="text-danger display-1">@ViewData["Title"]</h1>
+    <br>
+    <br>
+    <p class="text-danger">Chismosillo, no eres admin.</p>
     <img id="imagen33" class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZrzWYm-DSrLJFRRt4VOxjfV-BqlWtDqu-DQ&usqp=CAU" />
     @section Css {
         <link href="~/css/error.css" rel="stylesheet" />

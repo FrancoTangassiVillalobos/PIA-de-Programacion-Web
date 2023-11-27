@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Prueba002.Models;
 using Prueba002.Models.dbModels;
 
 namespace Prueba002.Controllers
 {
-<<<<<<<< HEAD:Prueba002/Controllers/ListumsController.cs
     public class ListumsController : Controller
-========
-    [Authorize(Roles ="Admin")]
-    public class Albums1Controller : Controller
->>>>>>>> aacc22f0c98169d9a8f013d51a6e45141baec115:Prueba002/Controllers/Albums1Controller.cs
     {
         private readonly PropuestadeBasedeDatosdelProyectoFinalContext _context;
 
@@ -63,25 +56,11 @@ namespace Prueba002.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<<< HEAD:Prueba002/Controllers/ListumsController.cs
         public async Task<IActionResult> Create([Bind("IdLista,IdUsuario,NombreLista")] Listum listum)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(listum);
-========
-        public async Task<IActionResult> Create([Bind("IdAlbum,NombreAlbum,IdGenero,IdArtista,FotoAlbum")] Album1HR album)
-        {
-            if (ModelState.IsValid)
-            {
-                Album album1 = new Album {
-                    NombreAlbum=album.NombreAlbum,
-                    IdGenero=album.IdGenero,
-                    IdArtista=album.IdArtista,
-                    FotoAlbum=album.FotoAlbum
-                };
-                _context.Albums.Add(album1);
->>>>>>>> aacc22f0c98169d9a8f013d51a6e45141baec115:Prueba002/Controllers/Albums1Controller.cs
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -175,14 +154,14 @@ namespace Prueba002.Controllers
             {
                 _context.Lista.Remove(listum);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ListumExists(int id)
         {
-          return (_context.Lista?.Any(e => e.IdLista == id)).GetValueOrDefault();
+            return (_context.Lista?.Any(e => e.IdLista == id)).GetValueOrDefault();
         }
     }
 }
