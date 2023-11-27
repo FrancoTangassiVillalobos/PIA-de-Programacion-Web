@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.NombreAlbum)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FotoAlbum)
+                <img class="img-fluid w-50" src="@Html.DisplayFor(modelItem => item.FotoAlbum)" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdArtistaNavigation.IdArtista)
