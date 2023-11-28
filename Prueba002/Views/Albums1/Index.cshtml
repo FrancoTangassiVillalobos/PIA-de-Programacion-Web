@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Albums</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-success" asp-action="Create">Crear uno nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -24,30 +24,32 @@
             <th>
                 @Html.DisplayNameFor(model => model.IdGeneroNavigation)
             </th>
-            <th></th>
+            <th>Accion</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+                <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.NombreAlbum)
             </td>
-            <td>
+                <td id="nombmisterioso">
                 <img class="img-fluid w-50" src="@Html.DisplayFor(modelItem => item.FotoAlbum)" />
             </td>
-            <td>
+                <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdArtistaNavigation.IdArtista)
             </td>
-            <td>
+                <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdGeneroNavigation.IdGenero)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAlbum">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAlbum">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAlbum">Delete</a>
+                <td id="nombmisterioso2">
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.IdAlbum">Editar</a> <br />
+                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdAlbum">Detalles</a> <br />
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdAlbum">Eliminar</a><br />
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+

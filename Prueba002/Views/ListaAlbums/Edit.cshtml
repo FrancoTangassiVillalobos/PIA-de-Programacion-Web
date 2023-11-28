@@ -18,7 +18,7 @@
                 <label asp-for="FechaAgregado" class="control-label"></label>
                 <input asp-for="FechaAgregado" class="form-control" />
                 <span asp-validation-for="FechaAgregado" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -27,7 +27,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-info" asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

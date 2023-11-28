@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Lista Albumes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-success" asp-action="Create">Crear uno nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -21,27 +21,30 @@
             <th>
                 @Html.DisplayNameFor(model => model.IdListaNavigation)
             </th>
-            <th></th>
+            <th>Accion</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+                <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.FechaAgregado)
             </td>
-            <td>
+                <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdAlbumNavigation.IdAlbum)
             </td>
-            <td>
+                <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdListaNavigation.IdLista)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <td id="nombmisterioso2">
+                @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) <br />
+                @Html.ActionLink("Detalles", "Detalles", new { /* id=item.PrimaryKey */ }) <br />
+                @Html.ActionLink("Eliminar", "Eliminar", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
     </tbody>
 </table>
+@section Css {
+    <link href="~/css/generos.css" rel="stylesheet" />
+}
