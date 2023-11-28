@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Prueba002.Models.dbModels.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Usuarios</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Crear uno nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripciónPersonal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NormalizedUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NormalizedEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailConfirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordHash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecurityStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConcurrencyStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockoutEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockoutEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccessFailedCount)
+            </th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.DescripciónPersonal)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.NormalizedUserName)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.NormalizedEmail)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.EmailConfirmed)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.PasswordHash)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.SecurityStamp)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.LockoutEnd)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.LockoutEnabled)
+            </td>
+                <td id="nombmisterioso">
+                @Html.DisplayFor(modelItem => item.AccessFailedCount)
+            </td>
+            <td id="nombremisterioso2">
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">Editar</a> <br />
+                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalles</a> <br />
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
