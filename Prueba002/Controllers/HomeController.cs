@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Prueba002.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Prueba002.Controllers
 {
@@ -28,6 +29,11 @@ namespace Prueba002.Controllers
             return View();
         }
         public IActionResult Contact()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
         {
             return View();
         }
