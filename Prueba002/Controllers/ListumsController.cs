@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Prueba002.Models;
 using Prueba002.Models.dbModels;
 
 namespace Prueba002.Controllers
@@ -56,11 +57,16 @@ namespace Prueba002.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdLista,IdUsuario,NombreLista")] Listum listum)
+        public async Task<IActionResult> Create([Bind("IdLista,IdUsuario,NombreLista")] ListasHR listum)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(listum);
+                Listum lista1 = new Listum()
+                {
+                    IdUsuario=listum.IdUsuario,
+                    NombreLista=listum.NombreLista
+                };
+                _context.Lista.Add(lista1);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
