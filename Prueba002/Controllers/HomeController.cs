@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Prueba002.Models;
 using Prueba002.Models.dbModels;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Prueba002.Controllers
 {
@@ -30,6 +31,11 @@ namespace Prueba002.Controllers
             return View();
         }
         public IActionResult Contact()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
         {
             return View();
         }
