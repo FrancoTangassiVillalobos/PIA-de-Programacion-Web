@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Prueba002.Models.dbModels;
 
 namespace Prueba002.Controllers
 {
+    [Authorize(Roles = "Moderador,Admin")]
     public class ListumsController : Controller
     {
         private readonly PropuestadeBasedeDatosdelProyectoFinalContext _context;

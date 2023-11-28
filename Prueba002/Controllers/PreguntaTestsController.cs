@@ -11,7 +11,7 @@ using Prueba002.Models.dbModels;
 
 namespace Prueba002.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Moderador,Admin")]
     public class PreguntaTestsController : Controller
     {
         private readonly PropuestadeBasedeDatosdelProyectoFinalContext _context;

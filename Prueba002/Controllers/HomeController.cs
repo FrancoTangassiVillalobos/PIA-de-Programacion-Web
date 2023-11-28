@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Prueba002.Models;
+using Prueba002.Models.dbModels;
 using System.Diagnostics;
 
 namespace Prueba002.Controllers
