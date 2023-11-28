@@ -26,7 +26,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="tablaCRUD">
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.FechaAgregado)
             </td>
@@ -36,7 +36,7 @@
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdListaNavigation.IdLista)
             </td>
-                <td id="nombmisterioso2">
+                <td id="nombmisterioso2" class="d-inline-flex">
                 @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) <br />
                 @Html.ActionLink("Detalles", "Detalles", new { /* id=item.PrimaryKey */ }) <br />
                 @Html.ActionLink("Eliminar", "Eliminar", new { /* id=item.PrimaryKey */ })

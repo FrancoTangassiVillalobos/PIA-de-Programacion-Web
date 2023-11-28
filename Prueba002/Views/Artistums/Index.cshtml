@@ -20,14 +20,14 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="tablaCRUD">
             <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.Nombre) 
             </td>
-            <td id="nombmisterioso2">
-                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.IdArtista">Editar</a> <br />
-                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdArtista">Detalles</a> <br />
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdArtista">Eliminar</a><br />
+                <td id="nombmisterioso2" class="d-inline-flex">
+                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.IdArtista">Editar</a>
+                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdArtista">Detalles</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdArtista">Eliminar</a>
             </td>
         </tr>
 }

@@ -65,7 +65,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="tablaCRUD">
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
@@ -114,7 +114,7 @@
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.AccessFailedCount)
             </td>
-            <td id="nombremisterioso2">
+                <td id="nombremisterioso2" class="d-inline-flex">
                     <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">Editar</a> <br />
                     <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalles</a> <br />
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>

@@ -23,14 +23,14 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr class="tablaCRUD">
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdTestNavigation.IdTest)
             </td>
-                <td id="nombmisterioso2">
+                <td id="nombmisterioso2" class="d-inline-flex">
                     <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.IdPregunta">Edit</a> <br />
                     <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdPregunta">Details</a> <br />
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdPregunta">Delete</a>

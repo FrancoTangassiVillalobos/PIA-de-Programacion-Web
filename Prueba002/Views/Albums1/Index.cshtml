@@ -29,7 +29,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="tablaCRUD">
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.NombreAlbum)
             </td>
@@ -42,7 +42,7 @@
                 <td id="nombmisterioso">
                 @Html.DisplayFor(modelItem => item.IdGeneroNavigation.IdGenero)
             </td>
-                <td id="nombmisterioso2">
+                <td id="nombmisterioso2" class="d-inline-flex">
                     <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.IdAlbum">Editar</a> <br />
                     <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdAlbum">Detalles</a> <br />
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdAlbum">Eliminar</a><br />
