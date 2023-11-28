@@ -46,15 +46,13 @@ body {
 
 .btn {
     display: block;
-    width: 400px;
+    width: 200px;
     margin: 0 auto;
     padding: 0.5rem 1rem;
 }
 
 .btn:hover, .nav-link:hover {
     font-weight: bold;
-    color: #301c41;
-    background-color: #BB9CC0;
 }
 
 #form {
@@ -83,4 +81,20 @@ p {
 
 .album:hover {
     transform: scale(1.1);
+}
+.table {
+    text-align:center;
+}
+#nombmisterioso {
+    font-size: 25px;
+    background-color: #e5b3fe;
+}
+#nombmisterioso2 {
+    background-color: #e5b3fe;
+}
+.tablaCRUD{
+    background-color: #e5b3fe;
+}
+dl {
+    background-color: #e5b3fe;
 }
